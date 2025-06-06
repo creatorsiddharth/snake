@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Snake Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>🐍 Snake Game</h1>
+  <div class="selectors">
+    <label>Speed:
+      <select id="speed-select">
+        <option value="500">Slow</option>
+        <option value="300" selected>Normal</option>
+        <option value="150">Fast</option>
+      </select>
+    </label>
+    <label>Field:
+      <select id="field-select">
+        <option value="1">Forest</option>
+        <option value="2">Desert</option>
+        <option value="3">Space</option>
+        <option value="4">Water</option>
+
+      </select>
+    </label>
+  </div>
+  <marquee behavior="" direction="">DEVELOPER: SIDDHARTH</marquee>
+  <div id="score_box">
+  <div id="h_score">High Score: <span id="h_score_nu">0</span></div>
+  <div id="score">Score: 0</div>
+  </div>
+    <div id="game-board">
+</div>
+
+  <div class="controls">
+    <button onclick="changeDirection('up')">↑</button>
+    <div>
+      <button onclick="changeDirection('left')">←</button>
+      <button onclick="changeDirection('down')">↓</button>
+      <button onclick="changeDirection('right')">→</button>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button id="start-button" onclick="startGame()">Start</button>
+    <button onclick="pauseGame()" id="pause-btn" disabled>Pause</button>
+    <button onclick="restartGame()">Restart</button>
+  </div>
+  <audio src="over.mp3" id="oversound"></audio>
+  <audio src="eating.mp3" id="eatsound"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
