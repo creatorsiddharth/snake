@@ -5,7 +5,7 @@ window.onload = function() {
   fieldSelect.disabled = false;
   
   let old_high_score = localStorage.getItem('h_score');
-  console.log(old_high_score);
+  alert(old_high_score);
   if(old_high_score==null){
     localStorage.setItem('h_score','0')
     old_high_score='0';
