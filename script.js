@@ -5,7 +5,13 @@ window.onload = function() {
   fieldSelect.disabled = false;
   
   let old_high_score = localStorage.getItem('h_score');
-  h_score_nu.innerText = old_high_score;
+  console.log(old_high_score)
+  if(old_high_score==null){
+    localStorage.setItem('h_score','0')
+    old_high_score='0'
+  }
+    h_score_nu.innerText = old_high_score;
+
   
   // Now safe to dispatch because listener is attached
   const event = new Event('change');
@@ -125,7 +131,7 @@ function moveSnake() {
   if (newHead === food) {
     score++;
     scoreDisplay.textContent = 'Score: ' + score;
-    if (parseInt(h_score_nu.innerText, 10) < score) {
+    if (parseInt(h_score_nu.innerText) < score) {
   h_score_nu.innerText = score;
 }
     
@@ -157,20 +163,6 @@ function placeFood() {
   }
   food = empty[Math.floor(Math.random() * empty.length)];
 }
-/*
-function changeDirection(dir) {
-  if (isPaused) return;
-  if ((dir === 'up' && direction !== 'down') ||
-    (dir === 'down' && direction !== 'up') ||
-    (dir === 'left' && direction !== 'right') ||
-    (dir === 'right' && direction !== 'left')) {
-    direction = dir;
-    console.log(dir)
-  }
-  
-}
-
-*/
 
 
 function changeDirection(dir) {
@@ -188,6 +180,10 @@ function changeDirection(dir) {
 
 function gameOver() {
   oversound.play();
+  scoreDisplay.classList.add('colorful')
+  if(parseInt(h_score_nu.innerText)==score){
+    h_score.classList.add('colorful')
+  }
   localStorage.setItem('h_score', h_score_nu.innerText)
   clearInterval(interval);
   playing = false;
@@ -214,7 +210,9 @@ function pauseGame() {
 
 function restartGame() {
   playing = true;
-  
+  h_score.classList.remove('colorful')
+  scoreDisplay.classList.remove('colorful')
+
   // Read latest field and speed
   speed = +speedSelect.value;
   obstacles = fields[fieldSelect.value];
@@ -256,7 +254,9 @@ function startGame() {
   
   playing = true;
   gameOverMessage.style.display = 'none';
-  
+  h_score.classList.remove('colorful')
+    scoreDisplay.classList.remove('colorful')
+
   // Read latest field and speed
   // speed = +speedSelect.value;
   speed = parseInt(speedSelect.value, 10);
