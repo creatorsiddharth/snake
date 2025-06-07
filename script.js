@@ -8,10 +8,11 @@ window.onload = function() {
   console.log(old_high_score);
   if(old_high_score==null){
     localStorage.setItem('h_score','0')
-    old_high_score='0'
+    old_high_score='0';
+    alert('d') 
   }
     h_score_nu.innerText = old_high_score;
-
+alert('s') 
   
   // Now safe to dispatch because listener is attached
   const event = new Event('change');
