@@ -5,14 +5,14 @@ window.onload = function() {
   fieldSelect.disabled = false;
   
   let old_high_score = localStorage.getItem('h_score');
-  alert(old_high_score);
+  
   if(old_high_score==null || old_high_score==""){
     localStorage.setItem('h_score','0')
     old_high_score='0';
-    alert('d') 
+    
   }
     h_score_nu.innerText = old_high_score;
-alert('s') 
+
   
   // Now safe to dispatch because listener is attached
   const event = new Event('change');
