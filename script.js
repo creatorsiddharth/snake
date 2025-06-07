@@ -6,7 +6,7 @@ window.onload = function() {
   
   let old_high_score = localStorage.getItem('h_score');
   alert(old_high_score);
-  if(old_high_score==null){
+  if(old_high_score==null || old_high_score==""){
     localStorage.setItem('h_score','0')
     old_high_score='0';
     alert('d') 
