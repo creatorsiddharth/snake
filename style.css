@@ -275,7 +275,9 @@ marquee{
  position: fixed;;
  top: 0;
  right: 0;
- color: red;
+ color: white;
+font-weight: bolder;
+
  background: black;
 }
 .colorful{
